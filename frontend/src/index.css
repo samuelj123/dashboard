@@ -1,0 +1,29 @@
+:root {
+  --black: #2b303d;
+  --white: #f4f7ff;
+  --orange: #eb6c36;
+  --blue: #77bcfb;
+  --pink: #e977fb;
+  --yellow: #fb3377;
+  --green: #b1fb77;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div {
+  color: var(--white);
+}
