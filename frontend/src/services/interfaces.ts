@@ -1,11 +1,4 @@
-export enum FetchState {
-	DEFAULT = 'DEFAULT',
-	LOADING = 'LOADING',
-	SUCCESS = 'SUCCESS',
-	ERROR = 'ERROR'
-}
-
-export interface title { title: "string" }
+export interface test { "title": "string" }
 
 export interface dt {
     "ending": number;

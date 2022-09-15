@@ -1,50 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import {GetTheTitle} from './hooks/firsthook';
+import { GetTest } from './services/data';
 import Dashboard from './components/Dashboard/Dashboard';
-import {FetchState} from './services/interfaces';
-
-
-
-
+import { test } from './services/interfaces';
 
 
 
 function App() {
-	const [Title, fetchState, getTitle] = GetTheTitle()
-	
-	useEffect(()=> {
-		getTitle();
-	},[]);
+
+	const [Test, setTest] = useState<test>();
+	useEffect(() => {
+		const x = async () => {
+			const title: test = await GetTest();
+			setTest(title);
+		}
+		x();
+	}, []);
 
 
-return (
-<>
-{fetchState === FetchState.DEFAULT &&(
-	<>
-		<Dashboard />
-	</>
-)}
-
-{fetchState === FetchState.LOADING &&(
-	<>
-		<p>Loading...</p>
-		<Dashboard />
-	</>
-)}
-{fetchState === FetchState.ERROR &&(
-	<>
-		<p>Reload Page</p>
-	</>
-)}
-{fetchState === FetchState.SUCCESS && Title &&(
-	<>
-		<p>{Title.title}</p>
-		<Dashboard />
-
-	</>
-)}
-</>
-)
+	return (
+		<>
+			<p>{Test?.title}</p>
+			<Dashboard />
+		</>
+	)
 }
 export default App;
